@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\User\GenderType;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,16 +14,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('tutor_options', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('contact_id');
-            $table->string('last_name');
-            $table->string('first_name');
-            $table->string('email')->unique();
-            $table->enum('gender', ['M', 'F']);
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+            $table->enum('gender', [GenderType::FEMALE, GenderType::MALE, GenderType::OTHER]);
             $table->timestamps();
         });
     }
@@ -34,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('tutor_options');
     }
 };
