@@ -20,7 +20,9 @@ return new class extends Migration
             $table->foreignId('collaborator_id')->nullable()->constrained()->onDelete('CASCADE');
             $table->foreignId('tutor_id')->nullable()->constrained()->onDelete('CASCADE');
             $table->foreignId('parent_id')->nullable()->constrained()->onDelete('CASCADE');
-            $table->timestamps();
+            $table->softDeletes();
+            $table->dateTime('updated_at')->useCurrent();
+            $table->dateTime('created_at')->useCurrent();
         });
     }
 

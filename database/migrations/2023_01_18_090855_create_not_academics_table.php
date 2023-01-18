@@ -16,7 +16,9 @@ return new class extends Migration
         Schema::create('not_academics', function (Blueprint $table) {
             $table->id();
             $table->foreignId('subject_id');
-            $table->timestamps();
+            $table->softDeletes();
+            $table->dateTime('updated_at')->useCurrent();
+            $table->dateTime('created_at')->useCurrent();
         });
     }
 

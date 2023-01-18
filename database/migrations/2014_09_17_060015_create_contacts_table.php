@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->dateTime('updated_at')->useCurrent();
+            $table->dateTime('created_at')->useCurrent();
         });
     }
 

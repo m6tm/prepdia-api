@@ -22,7 +22,9 @@ return new class extends Migration
             $table->integer('end_year');
             $table->string('diploma');
             $table->boolean('in_progress')->default(false);
-            $table->timestamps();
+            $table->softDeletes();
+            $table->dateTime('updated_at')->useCurrent();
+            $table->dateTime('created_at')->useCurrent();
         });
     }
 

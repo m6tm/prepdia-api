@@ -17,7 +17,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('test_id')->constrained()->onDelete('CASCADE');
             $table->string('intitled');
-            $table->timestamps();
+            $table->softDeletes();
+            $table->dateTime('updated_at')->useCurrent();
+            $table->dateTime('created_at')->useCurrent();
         });
     }
 

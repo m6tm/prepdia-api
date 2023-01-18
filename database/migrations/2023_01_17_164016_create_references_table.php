@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('references', function (Blueprint $table) {
             $table->id();
             $table->string('reference');
-            $table->timestamps();
+            $table->dateTime('updated_at')->useCurrent();
+            $table->dateTime('created_at')->useCurrent();
         });
     }
 

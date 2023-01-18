@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('informatics', function (Blueprint $table) {
             $table->id();
             $table->string('informatic');
-            $table->timestamps();
+            $table->dateTime('updated_at')->useCurrent();
+            $table->dateTime('created_at')->useCurrent();
         });
     }
 

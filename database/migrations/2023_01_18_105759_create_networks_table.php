@@ -18,7 +18,9 @@ return new class extends Migration
             $table->foreignId('profile_id')->constrained()->onDelete('CASCADE');
             $table->string('network')->unique();
             $table->string('link')->unique();
-            $table->timestamps();
+            $table->softDeletes();
+            $table->dateTime('updated_at')->useCurrent();
+            $table->dateTime('created_at')->useCurrent();
         });
     }
 

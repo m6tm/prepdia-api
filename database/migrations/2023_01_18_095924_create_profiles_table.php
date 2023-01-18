@@ -20,7 +20,9 @@ return new class extends Migration
             $table->string('cni_recto');
             $table->string('cni_verso');
             $table->string('certificate_birth');
-            $table->timestamps();
+            $table->softDeletes();
+            $table->dateTime('updated_at')->useCurrent();
+            $table->dateTime('created_at')->useCurrent();
         });
     }
 

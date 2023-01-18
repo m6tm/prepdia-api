@@ -19,7 +19,9 @@ return new class extends Migration
             $table->foreignId('business_id')->constrained()->onDelete('CASCADE');
             $table->foreignId('informatic_id')->constrained()->onDelete('CASCADE');
             $table->foreignId('not_academic_id')->constrained()->onDelete('CASCADE');
-            $table->timestamps();
+            $table->softDeletes();
+            $table->dateTime('updated_at')->useCurrent();
+            $table->dateTime('created_at')->useCurrent();
         });
     }
 

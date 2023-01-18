@@ -19,7 +19,9 @@ return new class extends Migration
             $table->foreignId('class_room_id');
             $table->foreignId('education_level_id');
             $table->foreignId('education_system_id');
-            $table->timestamps();
+            $table->softDeletes();
+            $table->dateTime('updated_at')->useCurrent();
+            $table->dateTime('created_at')->useCurrent();
         });
     }
 

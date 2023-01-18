@@ -17,7 +17,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('recreational_id')->constrained()->onDelete('CASCADE');
             $table->foreignId('not_academic_id')->constrained()->onDelete('CASCADE');
-            $table->timestamps();
+            $table->softDeletes();
+            $table->dateTime('updated_at')->useCurrent();
+            $table->dateTime('created_at')->useCurrent();
         });
     }
 

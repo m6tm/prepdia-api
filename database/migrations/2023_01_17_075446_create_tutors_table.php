@@ -19,7 +19,9 @@ return new class extends Migration
             $table->string('title');
             $table->float('tarif')->default(0);
             $table->longText('about');
-            $table->timestamps();
+            $table->softDeletes();
+            $table->dateTime('updated_at')->useCurrent();
+            $table->dateTime('created_at')->useCurrent();
         });
     }
 

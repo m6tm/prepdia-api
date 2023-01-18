@@ -21,7 +21,9 @@ return new class extends Migration
             $table->string('country');
             $table->string('longitude');
             $table->string('latitude');
-            $table->timestamps();
+            $table->softDeletes();
+            $table->dateTime('updated_at')->useCurrent();
+            $table->dateTime('created_at')->useCurrent();
         });
     }
 

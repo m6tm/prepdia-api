@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('childrens', function (Blueprint $table) {
             $table->id();
             $table->longText('about');
-            $table->timestamps();
+            $table->dateTime('updated_at')->useCurrent();
+            $table->dateTime('created_at')->useCurrent();
         });
     }
 

@@ -17,7 +17,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('question_id')->constrained()->onDelete('CASCADE');
             $table->foreignId('test_program_owner_id')->constrained()->onDelete('CASCADE');
-            $table->timestamps();
+            $table->softDeletes();
+            $table->dateTime('updated_at')->useCurrent();
+            $table->dateTime('created_at')->useCurrent();
         });
     }
 

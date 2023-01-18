@@ -20,7 +20,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->longText('relationship');
-            $table->timestamps();
+            $table->softDeletes();
+            $table->dateTime('updated_at')->useCurrent();
+            $table->dateTime('created_at')->useCurrent();
         });
     }
 

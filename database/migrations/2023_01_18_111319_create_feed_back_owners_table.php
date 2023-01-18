@@ -18,7 +18,9 @@ return new class extends Migration
             $table->foreignId('tutor_id')->constrained()->onDelete('CASCADE');
             $table->foreignId('offer_id')->constrained()->onDelete('CASCADE');
             $table->foreignId('parent_id')->constrained()->onDelete('CASCADE');
-            $table->timestamps();
+            $table->softDeletes();
+            $table->dateTime('updated_at')->useCurrent();
+            $table->dateTime('created_at')->useCurrent();
         });
     }
 

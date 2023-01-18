@@ -22,7 +22,9 @@ return new class extends Migration
             $table->integer('start_year');
             $table->integer('end_year');
             $table->boolean('in_progress')->default(false);
-            $table->timestamps();
+            $table->softDeletes();
+            $table->dateTime('updated_at')->useCurrent();
+            $table->dateTime('created_at')->useCurrent();
         });
     }
 

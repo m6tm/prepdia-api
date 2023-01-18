@@ -18,7 +18,8 @@ return new class extends Migration
             $table->id();
             $table->float('amount');
             $table->enum('transaction_type', [TransactionType::DEPOSIT, TransactionType::WITHDRAWAL]);
-            $table->timestamps();
+            $table->dateTime('updated_at')->useCurrent();
+            $table->dateTime('created_at')->useCurrent();
         });
     }
 

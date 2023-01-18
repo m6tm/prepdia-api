@@ -17,7 +17,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('help_subject_id')->constrained();
             $table->foreignId('children_id')->constrained();
-            $table->timestamps();
+            $table->softDeletes();
+            $table->dateTime('updated_at')->useCurrent();
+            $table->dateTime('created_at')->useCurrent();
         });
     }
 

@@ -17,7 +17,8 @@ return new class extends Migration
         Schema::create('tutor_options', function (Blueprint $table) {
             $table->id();
             $table->enum('gender', GenderType::getValues());
-            $table->timestamps();
+            $table->dateTime('updated_at')->useCurrent();
+            $table->dateTime('created_at')->useCurrent();
         });
     }
 

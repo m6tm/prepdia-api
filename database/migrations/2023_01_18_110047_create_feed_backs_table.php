@@ -18,7 +18,8 @@ return new class extends Migration
             $table->id();
             $table->enum('rate', FeedBackRateType::getValues())->default(FeedBackRateType::FAIR);
             $table->longText('feedback');
-            $table->timestamps();
+            $table->dateTime('updated_at')->useCurrent();
+            $table->dateTime('created_at')->useCurrent();
         });
     }
 

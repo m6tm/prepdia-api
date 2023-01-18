@@ -17,7 +17,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('tutor_id');
             $table->dateTime('interview');
-            $table->timestamps();
+            $table->softDeletes();
+            $table->dateTime('updated_at')->useCurrent();
+            $table->dateTime('created_at')->useCurrent();
         });
     }
 

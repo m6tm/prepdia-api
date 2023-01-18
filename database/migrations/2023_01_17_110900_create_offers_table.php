@@ -17,7 +17,8 @@ return new class extends Migration
             $table->id();
             $table->float('salary');
             $table->dateTime('start_day');
-            $table->timestamps();
+            $table->dateTime('updated_at')->useCurrent();
+            $table->dateTime('created_at')->useCurrent();
         });
     }
 

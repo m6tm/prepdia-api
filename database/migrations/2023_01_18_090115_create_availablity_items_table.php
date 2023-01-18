@@ -18,7 +18,9 @@ return new class extends Migration
             $table->foreignId('availablitie_id');
             $table->string('day_week');
             $table->time('time');
-            $table->timestamps();
+            $table->softDeletes();
+            $table->dateTime('updated_at')->useCurrent();
+            $table->dateTime('created_at')->useCurrent();
         });
     }
 
