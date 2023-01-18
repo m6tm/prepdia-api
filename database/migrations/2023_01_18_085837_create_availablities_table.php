@@ -1,6 +1,5 @@
 <?php
 
-use App\Enums\User\GenderType;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,9 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tutor_options', function (Blueprint $table) {
+        Schema::create('availablities', function (Blueprint $table) {
             $table->id();
-            $table->enum('gender', GenderType::getValues());
+            $table->foreignId('tutor_id');
+            $table->dateTime('interview');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tutor_options');
+        Schema::dropIfExists('availablities');
     }
 };

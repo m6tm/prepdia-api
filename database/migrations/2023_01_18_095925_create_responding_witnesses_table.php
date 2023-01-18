@@ -1,6 +1,5 @@
 <?php
 
-use App\Enums\User\GenderType;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,9 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tutor_options', function (Blueprint $table) {
+        Schema::create('responding_witnesses', function (Blueprint $table) {
             $table->id();
-            $table->enum('gender', GenderType::getValues());
+            $table->foreignId('profile_id')->constrained()->onDelete('CASCADE');
+            $table->foreignId('contact_id')->constrained()->onDelete('CASCADE');
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->longText('relationship');
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tutor_options');
+        Schema::dropIfExists('responding_witnesses');
     }
 };
