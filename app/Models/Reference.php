@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Reference extends Model
 {
     use HasFactory;
+    
+    public function parent()
+    {
+        return $this->belongsTo(Client::class);
+    }
 }

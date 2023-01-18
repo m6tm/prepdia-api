@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Test extends Model
 {
     use HasFactory;
+    
+    public function tutor()
+    {
+        return $this->belongsTo(Tutor::class);
+    }
+    
+    public function tests()
+    {
+        return $this->hasMany(TestOwner::class);
+    }
 }

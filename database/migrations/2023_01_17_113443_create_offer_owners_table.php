@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('offer_owners', function (Blueprint $table) {
             $table->id();
             $table->foreignId('tutor_id')->constrained();
-            $table->foreignId('parent_id')->constrained();
+            $table->foreignId('client_id')->constrained();
             $table->foreignId('collaborator_id')->constrained();
             $table->softDeletes();
             $table->dateTime('updated_at')->useCurrent();

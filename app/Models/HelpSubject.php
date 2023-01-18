@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class HelpSubject extends Model
 {
     use HasFactory;
+    
+    public function subject_help()
+    {
+        return $this->hasMany(HelpSubjectOwner::class);
+    }
 }

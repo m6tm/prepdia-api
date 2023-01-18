@@ -15,7 +15,9 @@ return new class extends Migration
     {
         Schema::create('academics', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('subject_id');
+            $table->foreignId('subject_id')->constrained()->onDelete('CASCADE');
+            $table->unsignedBigInteger('curricula_id');
+            $table->foreign('curricula_id')->references('id')->on('curricula')->onDelete('CASCADE');
             $table->softDeletes();
             $table->dateTime('updated_at')->useCurrent();
             $table->dateTime('created_at')->useCurrent();

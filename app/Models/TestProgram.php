@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class TestProgram extends Model
 {
     use HasFactory;
+    
+    public function test_owners()
+    {
+        return $this->belongsTo(TestOwner::class);
+    }
+    
+    public function test_program_owners()
+    {
+        return $this->belongsTo(TestProgramOwner::class);
+    }
 }

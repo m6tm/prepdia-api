@@ -13,13 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('payment_owners', function (Blueprint $table) {
+        Schema::create('clients', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('payment_method_id');
-            $table->foreignId('payment_id');
-            $table->foreignId('collaborator_id')->nullable()->constrained()->onDelete('CASCADE');
-            $table->foreignId('tutor_id')->nullable()->constrained()->onDelete('CASCADE');
-            $table->foreignId('client_id')->nullable()->constrained()->onDelete('CASCADE');
+            $table->foreignId('user_id')->constrained()->onDelete('CASCADE');
             $table->softDeletes();
             $table->dateTime('updated_at')->useCurrent();
             $table->dateTime('created_at')->useCurrent();
@@ -33,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('payment_owners');
+        Schema::dropIfExists('clients');
     }
 };

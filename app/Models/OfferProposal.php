@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class OfferProposal extends Model
 {
     use HasFactory;
+    
+    public function offer()
+    {
+        return $this->belongsTo(OfferOwner::class);
+    }
+    
+    public function tutor()
+    {
+        return $this->belongsTo(Tutor::class);
+    }
 }

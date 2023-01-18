@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class AvailablityItem extends Model
 {
     use HasFactory;
+    
+    public function availablity()
+    {
+        return $this->belongsTo(Availablity::class);
+    }
 }

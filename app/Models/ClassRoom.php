@@ -8,4 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 class ClassRoom extends Model
 {
     use HasFactory;
+    
+    public function children_programs()
+    {
+        return $this->hasMany(ProgramOwner::class);
+    }
+    
+    public function test_programs()
+    {
+        return $this->hasMany(TestProgramOwner::class);
+    }
+    
+    public function tutor_academic_program()
+    {
+        return $this->hasMany(TutorProgramOwner::class);
+    }
 }
